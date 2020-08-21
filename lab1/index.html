@@ -290,8 +290,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-scaling-your-application" class="md-nav__link">
-    Step 4 - Scaling Your Application
+  <a href="#step-3-scaling-your-application" class="md-nav__link">
+    Step 3 - Scaling Your Application
   </a>
   
     <nav class="md-nav">
@@ -307,6 +307,53 @@
           <li class="md-nav__item">
   <a href="#exercise-scale-down" class="md-nav__link">
     Exercise: Scale Down
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-routing-http-requests" class="md-nav__link">
+    Step 5 - Routing HTTP Requests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-creating-a-route" class="md-nav__link">
+    Exercise: Creating a Route
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-building-from-source-code" class="md-nav__link">
+    Step 5 - Building From Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background-source-to-image-s2i" class="md-nav__link">
+    Background: Source-to-Image (S2I)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-deploying-the-application-code" class="md-nav__link">
+    Exercise: Deploying the application code
   </a>
   
 </li>
@@ -421,8 +468,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-scaling-your-application" class="md-nav__link">
-    Step 4 - Scaling Your Application
+  <a href="#step-3-scaling-your-application" class="md-nav__link">
+    Step 3 - Scaling Your Application
   </a>
   
     <nav class="md-nav">
@@ -438,6 +485,53 @@
           <li class="md-nav__item">
   <a href="#exercise-scale-down" class="md-nav__link">
     Exercise: Scale Down
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-routing-http-requests" class="md-nav__link">
+    Step 5 - Routing HTTP Requests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-creating-a-route" class="md-nav__link">
+    Exercise: Creating a Route
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-building-from-source-code" class="md-nav__link">
+    Step 5 - Building From Source Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background-source-to-image-s2i" class="md-nav__link">
+    Background: Source-to-Image (S2I)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-deploying-the-application-code" class="md-nav__link">
+    Exercise: Deploying the application code
   </a>
   
 </li>
@@ -511,7 +605,7 @@
 <p>You are ready to deploy the existing container image. Click the blue <em>Create</em> button at the bottom of the screen. This should bring you back to the <em>Topology</em> view, where you'll see a visual representation of the application you just deployed. As the image deployment progresses, you'll see the ring around the <code>parksmap-katacoda</code> deployment progress from white to light blue to blue.</p>
 <p><img alt="" src="../img/3parksmap-overview.png" /></p>
 <p>These are the only steps you need to run to get a "vanilla" container image deployed on OpenShift. This should work with any container image that follows best practices, such as defining the port any service is exposed on, not needing to run specifically as the <em>root user</em> or other dedicated user, and which embeds a default command for running the application.</p>
-<h2 id="step-4-scaling-your-application">Step 4 - Scaling Your Application</h2>
+<h2 id="step-3-scaling-your-application">Step 3 - Scaling Your Application</h2>
 <p>Let's scale our application up to 2 instances of the pods. You can do this by clicking inside the circle for the <code>parksmap-katacoda</code> application from <em>Topology</em> view to open the side panel. In the side panel, click the <em>Details</em> tab, and then click the "up" arrow next to the <em>Pod</em> in side panel.</p>
 <p><img alt="Scaling using arrows" src="../img/4scaling-arrows.png" /></p>
 <p>To verify that we changed the number of replicas, click the <em>Resources</em> tab in the side panel. You should see a list with your pods similar to the image below:</p>
@@ -529,6 +623,58 @@
 <p>The pod that we deleted is terminating (i.e., it is being cleaned up). A new pod was created because OpenShift will always make sure that, if one pod dies, there is going to be new pod created to fill its place.</p>
 <h3 id="exercise-scale-down">Exercise: Scale Down</h3>
 <p>Before we continue, go ahead and scale your application down to a single instance. Click <em>Topology</em> to return to the <em>Topology</em> view, then click <code>parksmap-katacoda</code> and on the <em>Overview</em> tab, click the down arrow to scale back down to one instance.</p>
+<h2 id="step-5-routing-http-requests">Step 5 - Routing HTTP Requests</h2>
+<p><em>Services</em> provide internal abstraction and load balancing within an OpenShift environment, but sometimes clients (users, systems, devices, etc.) <strong>outside</strong> of OpenShift need to access an application. The way that external clients are able to access applications running in OpenShift is through the OpenShift routing layer. The resource object which controls this is a <em>Route</em>.</p>
+<p>The default OpenShift router (HAProxy) uses the HTTP header of the incoming request to determine where to proxy the connection. You can optionally define security, such as TLS, for the <em>Route</em>. If you want your <em>Services</em>, and, by extension, your <em>Pods</em>, to be accessible to the outside world, you need to create a <em>Route</em>.</p>
+<p>As we mentioned earlier in the tutorial, the <em>Container Image</em> method of deploying an application will create a <em>Route</em> for you by default. Since we un-checked that option, we will manually create a <em>Route</em> now.</p>
+<h3 id="exercise-creating-a-route">Exercise: Creating a Route</h3>
+<p>Fortunately, creating a <em>Route</em> is a pretty straight-forward process. First, go to the <em>Administrator Perspective</em> by switching to <em>Administrator</em> in the <em>Developer</em> drop down menu. Ensure that your <code>myproject</code> project is selected from the projects list. Next, click <em>Networking</em> and then <em>Routes</em> in the left navigation menu.</p>
+<p>Click the blue <em>Create Route</em> button.</p>
+<p><img alt="No route" src="../img/5no-route.png" /></p>
+<p>Enter <code>parksmap-katacoda</code> for the <em>Route</em> Name, select <code>parksmap-katacoda</code> for the <em>Service</em>, and <code>8080</code> for the Target Port. Leave all the other settings as-is.</p>
+<p><img alt="Route form" src="../img/5create-route.png" /></p>
+<p>Once you click <em>Create</em>, the <em>Route</em> will be created and displayed in the <em>Route Details</em> page.</p>
+<p><img alt="Route Details" src="../img/5route-details.png" /></p>
+<p>You can also view your <em>Route</em> in the <em>Developer Perspective</em>. Toggle back to the <em>Developer Perspective</em> now, and go to <em>Topology</em> view. On the <code>parksmap-katacoda</code> visualization you should now see an icon in the top right corner of the circle. This represents the <em>Route</em>, and if you click it, it will open the URL in your browser.</p>
+<p><img alt="Route created" src="../img/5route-created.png" /></p>
+<p>Once you've clicked the <em>Route</em> icon, you should see this in your browser:</p>
+<p><img alt="Application" src="../img/5parksmap-empty.png" /></p>
+<h2 id="step-5-building-from-source-code">Step 5 - Building From Source Code</h2>
+<p>In this section, you are going to deploy a backend service for the ParksMap application. This backend service will provide data, via a REST service API, on major national parks from all over the world. The ParksMap front end web application will query this data and display it on an interactive map in your web browser.</p>
+<h3 id="background-source-to-image-s2i">Background: Source-to-Image (S2I)</h3>
+<p>In a previous section, you learned how to deploy an application (the ParksMap front end) from a pre-existing container image. Here you will learn how to deploy an application direct from source code hosted in a remote Git repository. This will be done using the <a href="https://github.com/openshift/source-to-image">Source-to-Image (S2I)</a> tool.</p>
+<p>The documentation for S2I describes itself in the following way:</p>
+<blockquote>
+<p>Source-to-image (S2I) is a tool for building reproducible container images. S2I produces ready-to-run images by injecting source code into a container image and assembling a new container image which incorporates the builder image and built source. The result is then ready to use with docker run. S2I supports incremental builds which re-use previously downloaded dependencies, previously built artifacts, etc.</p>
+</blockquote>
+<p>OpenShift is S2I-enabled and can use S2I as one of its build mechanisms (in addition to building container images from Dockerfiles and "custom" builds).</p>
+<p>A full discussion of S2I is beyond the scope of this tutorial. More information about S2I can be found in the <a href="https://docs.openshift.com/container-platform/latest/builds/understanding-image-builds.html#build-strategy-s2i_understanding-image-builds">OpenShift S2I documentation</a> and the <a href="https://github.com/openshift/source-to-image">GitHub project respository for S2I</a>.</p>
+<p>The only key concept you need to remember about S2I is that it handles the process of building your application container image for you from your source code.</p>
+<h3 id="exercise-deploying-the-application-code">Exercise: Deploying the application code</h3>
+<p>The backend service that you will be deploying in this section is called <code>nationalparks-katacoda</code>. This is a Python application that will return map coordinates of major national parks from all over the world as JSON via a REST service API. The source code repository for the application can be found on GitHub at:</p>
+<ul>
+<li><a href="https://github.com/openshift-roadshow/nationalparks-katacoda">https://github.com/openshift-roadshow/nationalparks-katacoda</a></li>
+</ul>
+<p>To deploy the application you are going to use the <strong>+Add</strong> option in the left navigation menu of the <em>Developer Perspective</em>, so ensure you have the OpenShift web console open and that you are in the project called <code>myproject</code>. Click <strong>+Add</strong>. This time, rather than using <em>Container Image</em>, choose <em>From Catalog</em>, which will take you to the following page:</p>
+<p><img alt="Browse Catalog" src="../img/6browse-catalog.png" /></p>
+<p>If you don't see any items, then uncheck the <strong>Operator Backed</strong> checkbox. Under the <strong>Languages</strong> section, select Python in the list of supported languages. When presented with the options of <em>Django + Postgres SQL</em>, <em>Django + Postgres SQL (Ephemeral)</em>, and <em>Python</em>, select the <em>Python</em> option and click on <em>Create Application</em>.</p>
+<p><img alt="Python Builder" src="../img/6python-builder.png" /></p>
+<p>For the <em>Git Repo URL</em> use:</p>
+<p><code>https://github.com/openshift-roadshow/nationalparks-katacoda</code></p>
+<p><img alt="Create Python" src="../img/6python-version.png" /></p>
+<p>Once you've entered that, click outside of the text entry field, and then you should see the <em>Name</em> of the application show up as <code>nationalparks-katacoda</code>. The <em>Name</em> needs to be <code>nationalparks-katacoda</code> as the front end for the ParksMap application is expecting the backend service to use that name.</p>
+<p>Leave all other options as-is.</p>
+<p>Click on <em>Create</em> at the bottom right corner of the screen and you will return to the <em>Topology</em> view. Click on the circle for the <code>nationalparks-katacoda</code> application and then the <em>Resources</em> tab in the side panel. In the <em>Builds</em> section, you should see your build running.</p>
+<p><img alt="Build Running" src="../img/6build-running.png" /></p>
+<p>This is the step where S2I is run on the application source code from the Git repository to create the image which will then be run. Click on the <em>View Logs</em> link for the build and you can follow along as the S2I builder for Python downloads all the Python packages required to run the application, prepares the application, and creates the image.</p>
+<p><img alt="Build Logs" src="../img/6build-logs.png" /></p>
+<p>Head back to <em>Topology view</em> when the build completes to see the image being deployed and the application being started up. The build is complete when you see the following in the build logs: <code>Push successful</code>.</p>
+<p><img alt="Build Complete" src="../img/6build-complete.png" /></p>
+<p>The green check mark in the bottom left of the <code>nationalparks-katacoda</code> component visualization indicates that the build has completed. Once the ring turns from light blue to blue, the backend <code>nationalparks-katacoda</code> service is deployed.</p>
+<p>Now, return to the ParksMap front end application in your browser, and you should now be able to see the locations of the national parks displayed. If you don't still have the application open in your browser, go to <em>Topology</em> view and click the icon at the top right of the circle for the <code>parksmap-katacoda</code> application to open the URL in your browser.</p>
+<p><img alt="ParksMap Front End" src="../img/6parksmap-frontend.png" /></p>
+<p>Congratulations! You just finished learning the basics of how to get started with the OpenShift Container Platform.</p>
+<p>Now that you've completed this tutorial, click Continue for more resources and tools to help you learn more about OpenShift.</p>
                 
                   
                 
