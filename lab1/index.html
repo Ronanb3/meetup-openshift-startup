@@ -289,6 +289,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#step-4-scaling-your-application" class="md-nav__link">
+    Step 4 - Scaling Your Application
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#application-self-healing" class="md-nav__link">
+    Application "Self Healing"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-scale-down" class="md-nav__link">
+    Exercise: Scale Down
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -393,6 +420,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#step-4-scaling-your-application" class="md-nav__link">
+    Step 4 - Scaling Your Application
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#application-self-healing" class="md-nav__link">
+    Application "Self Healing"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-scale-down" class="md-nav__link">
+    Exercise: Scale Down
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -445,9 +499,36 @@
 <p><img alt="Add to project" src="../img/3add-to-empty-project.png" /></p>
 <p>In the future, to get back to this menu of ways to add content to your project, you can click <em>+Add</em> in the left navigation.</p>
 <p>Within the <em>Deploy Image</em> page, enter the following for <em>Image name from external registry</em>:</p>
-<p><code>docker.io/openshiftroadshow/parksmap-katacoda:1.2.0</code></p>
+<pre><code>docker.io/openshiftroadshow/parksmap-katacoda:1.2.0
+</code></pre>
+
 <p>Press tab or click outside of the text box to validate the image:</p>
 <p><img alt="Deploy" src="../img/3deploy-parksmap-image.png" /></p>
+<p>The <em>Application Name</em> field will be populated with <code>parksmap-katacoda-app</code> and the <em>Name</em> field with <code>parksmap-katacoda</code>. This name will be what is used for your application and the various components created that relate to it. Leave this as the generated value as steps given in the upcoming sections will use this name.</p>
+<p>By default, creating a deployment using the <em>Container Image</em> method will also create a Route for your application. A Route makes your application available at a publicly accessible URL.</p>
+<p><img alt="Advanced Options" src="../img/3advanced-options.png" /></p>
+<p>Normally, you would keep this box checked, since it's very convenient to have the Route created for you. For the purposes of learning, <strong>un-check the box</strong>. We'll learn more about Routes later in the tutorial, and we'll create the Route ourselves then.</p>
+<p>You are ready to deploy the existing container image. Click the blue <em>Create</em> button at the bottom of the screen. This should bring you back to the <em>Topology</em> view, where you'll see a visual representation of the application you just deployed. As the image deployment progresses, you'll see the ring around the <code>parksmap-katacoda</code> deployment progress from white to light blue to blue.</p>
+<p><img alt="" src="../img/3parksmap-overview.png" /></p>
+<p>These are the only steps you need to run to get a "vanilla" container image deployed on OpenShift. This should work with any container image that follows best practices, such as defining the port any service is exposed on, not needing to run specifically as the <em>root user</em> or other dedicated user, and which embeds a default command for running the application.</p>
+<h2 id="step-4-scaling-your-application">Step 4 - Scaling Your Application</h2>
+<p>Let's scale our application up to 2 instances of the pods. You can do this by clicking inside the circle for the <code>parksmap-katacoda</code> application from <em>Topology</em> view to open the side panel. In the side panel, click the <em>Details</em> tab, and then click the "up" arrow next to the <em>Pod</em> in side panel.</p>
+<p><img alt="Scaling using arrows" src="../img/4scaling-arrows.png" /></p>
+<p>To verify that we changed the number of replicas, click the <em>Resources</em> tab in the side panel. You should see a list with your pods similar to the image below:</p>
+<p><img alt="List of pods" src="../img/4scaling-pods.png" /></p>
+<p>You can see that we now have 2 replicas.</p>
+<p>Overall, that's how simple it is to scale an application (<em>Pods</em> in a <em>Service</em>). Application scaling can happen extremely quickly because OpenShift is just launching new instances of an existing image, especially if that image is already cached on the node.</p>
+<h3 id="application-self-healing">Application "Self Healing"</h3>
+<p>OpenShift's <em>Deployments</em> are constantly monitoring to see that the desired number of <em>Pods</em> is actually running. Therefore, if the actual state ever deviates from the desired state (i.e., 2 pods running), OpenShift will work to fix the situation.</p>
+<p>Since we have two <em>Pods</em> running right now, let's see what happens if we "accidentally" kill one.</p>
+<p>On the <em>Resources</em> tab where you viewed the list of pods after scaling to 2 replicas, open one of the pods by clicking its name in the list.</p>
+<p>In the top right corner of the page, there is an <em>Actions</em> drop down menu. Click it and select <em>Delete Pod</em>.</p>
+<p><img alt="Delete action" src="../img/4scaling-actions.png" /></p>
+<p>After you click <em>Delete Pod</em>, click <em>Delete</em> in the confirmation dialog. You will be taken to a page listing pods, however, this time, there are three pods. Note that on smaller screens you may not see all of these columns.</p>
+<p><img alt="List of pods" src="../img/4scaling-terminating.png" /></p>
+<p>The pod that we deleted is terminating (i.e., it is being cleaned up). A new pod was created because OpenShift will always make sure that, if one pod dies, there is going to be new pod created to fill its place.</p>
+<h3 id="exercise-scale-down">Exercise: Scale Down</h3>
+<p>Before we continue, go ahead and scale your application down to a single instance. Click <em>Topology</em> to return to the <em>Topology</em> view, then click <code>parksmap-katacoda</code> and on the <em>Overview</em> tab, click the down arrow to scale back down to one instance.</p>
                 
                   
                 
