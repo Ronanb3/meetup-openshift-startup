@@ -6,6 +6,8 @@ theme:
     accent: 'blue'
 nav:
     - Home: index.md
+    - Prerequisites: prereqs.md
     - Lab1: lab1.md
+    - Lab2: lab2.md
 markdown_extensions:
     - attr_list

@@ -11,3 +11,7 @@ In this site you can find the labs for the meetup OpenShift Startup
 ## Presentations
 
 - OpenShift Presentation
+
+## Source
+
+These labs are based on Redhat Labs : [getting started](https://learn.openshift.com/introduction/getting-started/)
