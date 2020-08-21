@@ -229,30 +229,63 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#step-1-exploring-the-web-console" class="md-nav__link">
+    Step 1 : Exploring The Web Console
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#exercise-logging-in-with-the-web-console" class="md-nav__link">
     Exercise: Logging in with the Web Console
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#what-is-a-project-why-does-it-matter" class="md-nav__link">
     What is a project? Why does it matter?
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#exercise-creating-a-project" class="md-nav__link">
     Exercise: Creating a Project
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#exercise-explore-the-administrator-and-developer-perspectives" class="md-nav__link">
     Exercise: Explore the Administrator and Developer Perspectives
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-deploying-a-docker-image" class="md-nav__link">
+    Step 3 - Deploying a Docker Image
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-deploying-your-first-image" class="md-nav__link">
+    Exercise: Deploying Your First Image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -300,30 +333,63 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#step-1-exploring-the-web-console" class="md-nav__link">
+    Step 1 : Exploring The Web Console
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#exercise-logging-in-with-the-web-console" class="md-nav__link">
     Exercise: Logging in with the Web Console
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#what-is-a-project-why-does-it-matter" class="md-nav__link">
     What is a project? Why does it matter?
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#exercise-creating-a-project" class="md-nav__link">
     Exercise: Creating a Project
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#exercise-explore-the-administrator-and-developer-perspectives" class="md-nav__link">
     Exercise: Explore the Administrator and Developer Perspectives
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-deploying-a-docker-image" class="md-nav__link">
+    Step 3 - Deploying a Docker Image
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-deploying-your-first-image" class="md-nav__link">
+    Exercise: Deploying Your First Image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -346,29 +412,42 @@
                 
                 <h1 id="lab-1-connect-to-openshift-and-create-your-first-application-using-the-web-interface">Lab 1 : Connect to Openshift and create your first application using the Web interface</h1>
 <p>In this lab, we will connect to OpenShift and create an application from the Web Interface</p>
-<h2 id="exercise-logging-in-with-the-web-console">Exercise: Logging in with the Web Console</h2>
+<h2 id="step-1-exploring-the-web-console">Step 1 : Exploring The Web Console</h2>
+<h3 id="exercise-logging-in-with-the-web-console">Exercise: Logging in with the Web Console</h3>
 <p>To begin, click on the <strong>Console</strong> tab on your screen. This will open the web console on your browser.</p>
 <p>You should see a <strong>Red Hat OpenShift Container Platform</strong> window with <strong>Username</strong> and <strong>Password</strong> forms as shown below:</p>
 <p><img alt="Login" border="2" src="../img/2ocp-login.png" width="600px" /></p>
 <p><strong>Username:</strong> <code>developer</code></p>
 <p><strong>Password:</strong> <code>developer</code></p>
 <p>After logging in to the web console, you'll be on a <em>Projects</em> page.</p>
-<h2 id="what-is-a-project-why-does-it-matter">What is a project? Why does it matter?</h2>
+<h3 id="what-is-a-project-why-does-it-matter">What is a project? Why does it matter?</h3>
 <p>OpenShift is often referred to as a container application platform in that it is a platform designed for the development and deployment of applications in containers.</p>
 <p>To group your application, we use projects. The reason for having a project to contain your application is to allow for controlled access and quotas for developers or teams.</p>
 <p>More technically, it's a visualization of the Kubernetes namespace based on the developer access controls.</p>
-<h2 id="exercise-creating-a-project">Exercise: Creating a Project</h2>
+<h3 id="exercise-creating-a-project">Exercise: Creating a Project</h3>
 <p>Click the blue <strong>Create Project</strong> button.</p>
 <p>You should now see a page for creating your first project in the web console. Fill in the <em>Name</em> field as <code>myproject</code>.</p>
 <p><img alt="Project" border="2" src="../img/2create-project.png" width="600px" /></p>
 <p>The rest of the form is optional and up to you to fill in or ignore. Click <em>Create</em> to continue.</p>
 <p>After your project is created, you will see some basic information about your project.</p>
-<h2 id="exercise-explore-the-administrator-and-developer-perspectives">Exercise: Explore the Administrator and Developer Perspectives</h2>
+<h3 id="exercise-explore-the-administrator-and-developer-perspectives">Exercise: Explore the Administrator and Developer Perspectives</h3>
 <p>Notice the navigation menu on the left. When you first log in, you'll typically be in the <em>Administrator Perspective</em>. If you are not in the <em>Administrator Perspective</em>, click the perspective toggle and switch from <strong>Developer</strong> to <strong>Administrator</strong>.</p>
 <p><img alt="Perspective" border="2" src="../img/2perspective.png" width="600px" /></p>
 <p>You're now in the <em>Administrator Perspective</em>, where you'll find <strong>Operators</strong>, <strong>Workloads</strong>, <strong>Networking</strong>, <strong>Storage</strong>, <strong>Builds</strong>, and <strong>Administration</strong> menus in the navigation.</p>
 <p>Take a quick look around these, clicking on a few of the menus to see more options.</p>
 <p>Now, toggle to the <em>Developer Perspective</em>. We will spend most of our time in this tutorial in the <em>Developer Perspective</em>. The first thing you'll see is the <em>Topology</em> view. Right now it is empty, and lists several different ways to add content to your project. Once you have an application deployed, it will be visualized here in <em>Topology</em> view.</p>
+<h2 id="step-3-deploying-a-docker-image">Step 3 - Deploying a Docker Image</h2>
+<p>In this section, you are going to deploy the front end component of an application called <strong>parksmap</strong>. The web application will display an interactive map, which will be used to display the location of major national parks from all over the world.</p>
+<h3 id="exercise-deploying-your-first-image">Exercise: Deploying Your First Image</h3>
+<p>The simplest way to deploy an application in OpenShift is to take an existing container image and run it. We are going to use the OpenShift web console to do this, so ensure you have the OpenShift web console open with the <em>Developer Perspective</em> active and that you are in the project called <code>myproject</code>.</p>
+<p>The OpenShift web console provides various options to deploy an application to a project. For this section, we are going to use the <em>Container Image</em> method. As the project is empty at this point, the <em>Topology</em> view should display the following options: <em>From Git</em>, <em>Container Image</em>, <em>From Catalog</em>, <em>From Dockerfile</em>, <em>YAML</em>, and <em>Database</em>.</p>
+<p>Choose the <strong>Container Image</strong> option.</p>
+<p><img alt="Add to project" src="../img/3add-to-empty-project.png" /></p>
+<p>In the future, to get back to this menu of ways to add content to your project, you can click <em>+Add</em> in the left navigation.</p>
+<p>Within the <em>Deploy Image</em> page, enter the following for <em>Image name from external registry</em>:</p>
+<p><code>docker.io/openshiftroadshow/parksmap-katacoda:1.2.0</code></p>
+<p>Press tab or click outside of the text box to validate the image:</p>
+<p><img alt="Deploy" src="../img/3deploy-parksmap-image.png" /></p>
                 
                   
                 
