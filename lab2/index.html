@@ -222,9 +222,72 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Lab2
+      </label>
+    
     <a href="./" title="Lab2" class="md-nav__link md-nav__link--active">
       Lab2
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-interface-cli" class="md-nav__link">
+    Command Line Interface (CLI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-an-application-with-oc-from-the-command-line" class="md-nav__link">
+    Deploy an application with oc from the command line
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-to-the-openshift-cluster" class="md-nav__link">
+    Login to the OpenShift Cluster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-the-oc-cli" class="md-nav__link">
+    Working with the oc CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-an-application-from-the-command-line" class="md-nav__link">
+    Deploy an application from the command line
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -246,6 +309,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-interface-cli" class="md-nav__link">
+    Command Line Interface (CLI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-an-application-with-oc-from-the-command-line" class="md-nav__link">
+    Deploy an application with oc from the command line
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-to-the-openshift-cluster" class="md-nav__link">
+    Login to the OpenShift Cluster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-the-oc-cli" class="md-nav__link">
+    Working with the oc CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-an-application-from-the-command-line" class="md-nav__link">
+    Deploy an application from the command line
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -259,6 +372,75 @@
                 
                 <h1 id="lab-2-connect-to-openshift-and-create-your-first-application-using-the-command-line">Lab 2 : Connect to Openshift and create your first application using the command line</h1>
 <p>In this lab, we will connect to OpenShift and create an application using the command line</p>
+<h2 id="command-line-interface-cli">Command Line Interface (CLI)</h2>
+<p>The OpenShift CLI is accessed using the command <em>oc</em>. From here, you can administrate the entire OpenShift cluster and deploy new applications.</p>
+<p>The CLI exposes the underlying Kubernetes orchestration system with the enhancements made by OpenShift. Users familiar with Kubernetes will be able to adapt to OpenShift quickly. <em>oc</em> provides all of the functionality of <em>kubectl</em>, along with additional functionality to make it easier to work with OpenShift. The CLI is ideal in situations where you are:</p>
+<p>1) Working directly with project source code</p>
+<p>2) Scripting OpenShift operations</p>
+<p>3) Restricted by bandwidth resources and cannot use the web console</p>
+<h2 id="deploy-an-application-with-oc-from-the-command-line">Deploy an application with <code>oc</code> from the command line</h2>
+<p>The OpenShift <code>oc</code> command line tool includes all the functionality of the Kubernetes native <code>kubectl</code> CLI but it has also all the function required for OpenShift specifics, e.g. a <code>login</code> command to access the OpenShift cluster.</p>
+<h3 id="login-to-the-openshift-cluster">Login to the OpenShift Cluster</h3>
+<p>Once <code>oc</code> is installed, copy the login command from the OpenShift Web Console and paste it into a command window (shell). It will look similar to this:</p>
+<pre><code>$ oc login https://c100-e.us-south.containers.cloud.ibm.com:30*** --token=z5cuqxABC-9QdqE1ivXYZ1z_Y6Tghj1qxN-abCWc1Bg
+</code></pre>
+
+<p>If login is successfull you will see all the projects on OpenShift that you have access to.</p>
+<p>Keep the command line open but go back to the OpenShift Web Console.</p>
+<h3 id="working-with-the-oc-cli">Working with the <code>oc</code> CLI</h3>
+<ol>
+<li>
+<p>Go back to your command line where you used <code>oc</code>to logon to your OpenShift cluster.</p>
+</li>
+<li>
+<p>Create a new project:</p>
+</li>
+</ol>
+<pre><code>$ oc new-project blog
+</code></pre>
+
+<p>Now using project "blog" on server "<a href="https://c100-e.us-south.containers.cloud.ibm.com:30***&quot;">https://c100-e.us-south.containers.cloud.ibm.com:30***"</a>.</p>
+<ol>
+<li></li>
+</ol>
+<h3 id="deploy-an-application-from-the-command-line">Deploy an application from the command line</h3>
+<ol>
+<li>Check if the image is available:</li>
+</ol>
+<pre><code>$ oc new-app --search openshiftkatacoda/blog-django-pyDocker images (oc new-app --docker-image=&lt;docker-image&gt; [--code=&lt;source&gt;])-----openshiftkatacoda/blog-django-py  Registry: Docker Hub  Tags:     latest
+</code></pre>
+
+<ol>
+<li>Deploy the image as an application:</li>
+</ol>
+<pre><code>$ oc new-app openshiftkatacoda/blog-django-py--&gt; Found Docker image 927f823 (2 months old) from Docker Hub for &quot;openshiftkatacoda/blog-django-py&quot;    Python 3.5     ----------     Python 3.5 available as container is a base platform for building and running various Python 3.5 applications and frameworks. Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.    Tags: builder, python, python35, python-35, rh-python35    * An image stream tag will be created as &quot;blog-django-py:latest&quot; that will track this image    * This image will be deployed in deployment config &quot;blog-django-py&quot;    * Port 8080/tcp will be load balanced by service &quot;blog-django-py&quot;      * Other containers can access this service through the hostname &quot;blog-django-py&quot;--&gt; Creating resources ...    imagestream.image.openshift.io &quot;blog-django-py&quot; created    deploymentconfig.apps.openshift.io &quot;blog-django-py&quot; created    service &quot;blog-django-py&quot; created--&gt; Success    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:     'oc expose svc/blog-django-py'     Run 'oc status' to view your app.
+</code></pre>
+
+<ol>
+<li>Check the status of your deployment:</li>
+</ol>
+<pre><code>$ oc status --suggestIn project blog on server https://c100-e.us-south.containers.cloud.ibm.com:30634svc/blog-django-py - 172.21.51.187:8080  dc/blog-django-py deploys istag/blog-django-py:latest     deployment #1 deployed 56 seconds ago - 1 podInfo:  * dc/blog-django-py has no readiness probe to verify pods are ready to accept traffic or ensure deployment is successful.    try: oc set probe dc/blog-django-py --readiness ...  * dc/blog-django-py has no liveness probe to verify pods are still running.    try: oc set probe dc/blog-django-py --liveness ...
+</code></pre>
+
+<p>The --suggest options even gives you infos on things that are missing in your configuration.</p>
+<ol>
+<li>Your application needs a Route to expose it externally:</li>
+</ol>
+<pre><code>$ oc expose service/blog-django-pyroute.route.openshift.io/blog-django-py exposed
+</code></pre>
+
+<ol>
+<li>Display the URL of the Route:</li>
+</ol>
+<pre><code>$ oc get route/blog-django-pyNAME             HOST/PORT                                                                                                               PATH      SERVICES         PORT       TERMINATION   WILDCARDblog-django-py   blog-django-py-blog.harald-uebele-openshift-5290c8c8e5797924dc1ad5d1bcdb37c0-0001.us-south.containers.appdomain.cloud             blog-django-py   8080-tcp                 None
+</code></pre>
+
+<p>You can see the very long URL. If you want, copy it and open it in your browser.</p>
+<ol>
+<li>Cleanup. This deletes everything including your project! This command takes a while to complete.</li>
+</ol>
+<pre><code>$ oc delete project blogproject.project.openshift.io &quot;blog&quot; deleted
+</code></pre>
                 
                   
                 
