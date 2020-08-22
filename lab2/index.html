@@ -398,13 +398,13 @@
 </ol>
 <pre><code>$ oc new-project blog
 
-Now using project &quot;blog&quot; on server &quot;[https://c100-e.us-south.containers.cloud.ibm.com:30***&quot;](https://c100-e.us-south.containers.cloud.ibm.com:30***&quot;).
+Now using project &quot;blog&quot; on server https://c100-e.us-south.containers.cloud.ibm.com:30***&quot;.
 </code></pre>
 
 <h3 id="deploy-an-application-from-the-command-line">Deploy an application from the command line</h3>
-<ol>
+<ul>
 <li>Check if the image is available:</li>
-</ol>
+</ul>
 <pre><code>$ oc new-app --search openshiftkatacoda/blog-django-py
 
 Docker images (oc new-app --docker-image=&lt;docker-image&gt; [--code=&lt;source&gt;])
@@ -414,9 +414,9 @@ openshiftkatacoda/blog-django-py
   Tags:     latest
 </code></pre>
 
-<ol>
+<ul>
 <li>Deploy the image as an application:</li>
-</ol>
+</ul>
 <pre><code>$ oc new-app openshiftkatacoda/blog-django-py
 --&gt; Found Docker image 927f823 (2 months old) from Docker Hub for &quot;openshiftkatacoda/blog-django-py&quot;
 
@@ -439,9 +439,9 @@ openshiftkatacoda/blog-django-py
      Run 'oc status' to view your app.
 </code></pre>
 
-<ol>
+<ul>
 <li>Check the status of your deployment:</li>
-</ol>
+</ul>
 <pre><code>$ oc status --suggest
 
 In project blog on server https://c100-e.us-south.containers.cloud.ibm.com:30634
@@ -457,26 +457,26 @@ Info:
 </code></pre>
 
 <p>The --suggest options even gives you infos on things that are missing in your configuration.</p>
-<ol>
+<ul>
 <li>Your application needs a Route to expose it externally:</li>
-</ol>
+</ul>
 <pre><code>$ oc expose service/blog-django-py
 
 route.route.openshift.io/blog-django-py exposed
 </code></pre>
 
-<ol>
+<ul>
 <li>Display the URL of the Route:</li>
-</ol>
+</ul>
 <pre><code>$ oc get route/blog-django-py
 NAME             HOST/PORT                                                                                                               PATH      SERVICES         PORT       TERMINATION   WILDCARD
 blog-django-py   blog-django-py-blog.harald-uebele-openshift-5290c8c8e5797924dc1ad5d1bcdb37c0-0001.us-south.containers.appdomain.cloud             blog-django-py   8080-tcp                 None
 </code></pre>
 
 <p>You can see the very long URL. If you want, copy it and open it in your browser.</p>
-<ol>
+<ul>
 <li>Cleanup. This deletes everything including your project! This command takes a while to complete.</li>
-</ol>
+</ul>
 <pre><code>$ oc delete project blog
 
 project.project.openshift.io &quot;blog&quot; deleted
