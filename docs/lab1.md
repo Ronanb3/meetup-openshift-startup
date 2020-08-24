@@ -219,5 +219,3 @@ Now, return to the ParksMap front end application in your browser, and you shoul
 ![ParksMap Front End](img/6parksmap-frontend.png)
 
 Congratulations! You just finished learning the basics of how to get started with the OpenShift Container Platform.
-
-

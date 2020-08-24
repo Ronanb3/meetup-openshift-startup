@@ -2,6 +2,8 @@
 
 In this site you can find the labs for the meetup OpenShift Startup
 
+If you need any help, don't hesitate to join our [Discord group](https://discord.gg/H6f2Ch). Someone will help you in setting up tour account or running the lab.
+
 ## Labs
 
 * Prereqs : Prerequisites to Labs
