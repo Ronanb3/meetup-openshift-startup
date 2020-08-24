@@ -256,13 +256,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#login-to-the-openshift-cluster" class="md-nav__link">
-    Login to the OpenShift Cluster
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#working-with-the-oc-cli" class="md-nav__link">
     Working with the oc CLI
   </a>
@@ -328,13 +321,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#login-to-the-openshift-cluster" class="md-nav__link">
-    Login to the OpenShift Cluster
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#working-with-the-oc-cli" class="md-nav__link">
     Working with the oc CLI
   </a>
@@ -380,27 +366,16 @@
 <p>3) Restricted by bandwidth resources and cannot use the web console</p>
 <h2 id="deploy-an-application-with-oc-from-the-command-line">Deploy an application with <code>oc</code> from the command line</h2>
 <p>The OpenShift <code>oc</code> command line tool includes all the functionality of the Kubernetes native <code>kubectl</code> CLI but it has also all the function required for OpenShift specifics, e.g. a <code>login</code> command to access the OpenShift cluster.</p>
-<h3 id="login-to-the-openshift-cluster">Login to the OpenShift Cluster</h3>
-<p>Once <code>oc</code> is installed, copy the login command from the OpenShift Web Console and paste it into a command window (shell). It will look similar to this:</p>
-<pre><code>$ oc login https://c100-e.us-south.containers.cloud.ibm.com:30*** --token=z5cuqxABC-9QdqE1ivXYZ1z_Y6Tghj1qxN-abCWc1Bg
-</code></pre>
-
-<p>If login is successfull you will see all the projects on OpenShift that you have access to.</p>
-<p>Keep the command line open but go back to the OpenShift Web Console.</p>
+<p>Follow instructions in the Prerequisites to log to your OCP  cluster.</p>
 <h3 id="working-with-the-oc-cli">Working with the <code>oc</code> CLI</h3>
 <ol>
 <li>
 <p>Go back to your command line where you used <code>oc</code>to logon to your OpenShift cluster.</p>
 </li>
 <li>
-<p>Create a new project:</p>
+<p>You have already a project created. With this test environment you cannot create a new project.</p>
 </li>
 </ol>
-<pre><code>$ oc new-project blog
-
-Now using project &quot;blog&quot; on server https://c100-e.us-south.containers.cloud.ibm.com:30***&quot;.
-</code></pre>
-
 <h3 id="deploy-an-application-from-the-command-line">Deploy an application from the command line</h3>
 <ul>
 <li>Check if the image is available:</li>
@@ -474,13 +449,7 @@ blog-django-py   blog-django-py-blog.harald-uebele-openshift-5290c8c8e5797924dc1
 </code></pre>
 
 <p>You can see the very long URL. If you want, copy it and open it in your browser.</p>
-<ul>
-<li>Cleanup. This deletes everything including your project! This command takes a while to complete.</li>
-</ul>
-<pre><code>$ oc delete project blog
-
-project.project.openshift.io &quot;blog&quot; deleted
-</code></pre>
+<p>You just created your first application in OpenShift in command line mode !</p>
                 
                   
                 
