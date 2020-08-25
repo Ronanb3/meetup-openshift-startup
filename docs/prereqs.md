@@ -65,5 +65,3 @@ Go back to the Cluster page and click on Access.
 ![](img/Access.png)
 
 Follow the steps to access your cluster from the command line.
-
-

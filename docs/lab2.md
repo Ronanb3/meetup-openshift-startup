@@ -18,29 +18,13 @@ The CLI exposes the underlying Kubernetes orchestration system with the enhancem
 
 The OpenShift `oc` command line tool includes all the functionality of the Kubernetes native `kubectl` CLI but it has also all the function required for OpenShift specifics, e.g. a `login` command to access the OpenShift cluster.
 
-### Login to the OpenShift Cluster
-
-Once `oc` is installed, copy the login command from the OpenShift Web Console and paste it into a command window (shell). It will look similar to this:
-
-```
-$ oc login https://c100-e.us-south.containers.cloud.ibm.com:30*** --token=z5cuqxABC-9QdqE1ivXYZ1z_Y6Tghj1qxN-abCWc1Bg
-```
-
-If login is successfull you will see all the projects on OpenShift that you have access to.
-
-Keep the command line open but go back to the OpenShift Web Console.
+Follow instructions in the Prerequisites to log to your OCP  cluster.
 
 ### Working with the `oc` CLI
 
 1. Go back to your command line where you used `oc`to logon to your OpenShift cluster.
 
-2. Create a new project:
-
-```
-$ oc new-project blog
-
-Now using project "blog" on server https://c100-e.us-south.containers.cloud.ibm.com:30***".
-```
+2. You have already a project created. With this test environment you cannot create a new project.
 
 ### Deploy an application from the command line
 
@@ -90,7 +74,7 @@ In project blog on server https://c100-e.us-south.containers.cloud.ibm.com:30634
 svc/blog-django-py - 172.21.51.187:8080
   dc/blog-django-py deploys istag/blog-django-py:latest
      deployment #1 deployed 56 seconds ago - 1 pod
-     
+
 Info:
   * dc/blog-django-py has no readiness probe to verify pods are ready to accept traffic or ensure deployment is successful.
     try: oc set probe dc/blog-django-py --readiness ...
@@ -118,10 +102,4 @@ blog-django-py   blog-django-py-blog.harald-uebele-openshift-5290c8c8e5797924dc1
 
 You can see the very long URL. If you want, copy it and open it in your browser.
 
-- Cleanup. This deletes everything including your project! This command takes a while to complete.
-
-```
-$ oc delete project blog
-
-project.project.openshift.io "blog" deleted
-```
+You just created your first application in OpenShift in command line mode !

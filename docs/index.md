@@ -12,7 +12,7 @@ If you need any help, don't hesitate to join our [Discord group](https://discord
 
 ## Presentations
 
-- OpenShift Presentation
+- [OpenShift Presentation](docs/Openshift_startup.pdf)
 
 ## Source
 
