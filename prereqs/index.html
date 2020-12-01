@@ -208,11 +208,11 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ask-for-an-access" class="md-nav__link">
-    Ask for an access
+  <a href="#openshift-in-ibm-cloud" class="md-nav__link">
+    OpenShift in IBM Cloud
   </a>
   
-    <nav class="md-nav" aria-label="Ask for an access">
+    <nav class="md-nav" aria-label="OpenShift in IBM Cloud">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -220,30 +220,17 @@
     IBM Cloud account creation
   </a>
   
-    <nav class="md-nav" aria-label="IBM Cloud account creation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-getting-a-free-ibm-cloud-account" class="md-nav__link">
-    Step 1: Getting a free IBM Cloud account
-  </a>
-  
 </li>
         
       </ul>
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#request-access" class="md-nav__link">
-    Request Access
+      
+        <li class="md-nav__item">
+  <a href="#openshift-on-your-pc-mac-server" class="md-nav__link">
+    OpenShift on your PC / Mac / Server
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -329,11 +316,11 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ask-for-an-access" class="md-nav__link">
-    Ask for an access
+  <a href="#openshift-in-ibm-cloud" class="md-nav__link">
+    OpenShift in IBM Cloud
   </a>
   
-    <nav class="md-nav" aria-label="Ask for an access">
+    <nav class="md-nav" aria-label="OpenShift in IBM Cloud">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -341,30 +328,17 @@
     IBM Cloud account creation
   </a>
   
-    <nav class="md-nav" aria-label="IBM Cloud account creation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-getting-a-free-ibm-cloud-account" class="md-nav__link">
-    Step 1: Getting a free IBM Cloud account
-  </a>
-  
 </li>
         
       </ul>
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#request-access" class="md-nav__link">
-    Request Access
+      
+        <li class="md-nav__item">
+  <a href="#openshift-on-your-pc-mac-server" class="md-nav__link">
+    OpenShift on your PC / Mac / Server
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -409,27 +383,18 @@
                 
                 
                 <h1 id="prerequisites-to-the-labs">Prerequisites to the Labs</h1>
-<h2 id="ask-for-an-access">Ask for an access</h2>
+<p>You need access to an OpenShit environment if you don't already have one.</p>
+<p>From the <a href="https://www.openshift.com/try">Red Hat OpenShift trial site</a>, here are the 2 best ways.</p>
+<h2 id="openshift-in-ibm-cloud">OpenShift in IBM Cloud</h2>
 <p>You first need an IBM Cloud account, then you need to request an access to an OpenShift cluster in IBM Cloud.</p>
 <p>Here are the steps.</p>
 <h3 id="ibm-cloud-account-creation">IBM Cloud account creation</h3>
 <p>Please <a href="[https://www.youtube.com/watch?v=HBkY-Fs1d6E](https://www.youtube.com/watch?v=HBkY-Fs1d6E)">watch this 3 min video</a> to better understand IBM Watson Cloud and the process to create an account. The first 2 minutes are enough to create the account.</p>
-<h4 id="step-1-getting-a-free-ibm-cloud-account">Step 1: Getting a free IBM Cloud account</h4>
 <p>Create an account on IBM Cloud to try Watson services for free with no time restrictions: <a href="https://ibm.co/34uskTV">Sign up for free</a>. You'll receive an email to confirm and activate your account.</p>
-<h3 id="request-access">Request Access</h3>
-<p>Once your IBM account is created, you can now request an access to an Opeshift instance. Go to <a href="https://ocp-intro-meetup.mybluemix.net/">https://ocp-intro-meetup.mybluemix.net/</a>.</p>
-<p>The Lab Key is <code>oslab</code> and you IBMid is the email address you used for you registration. Accept the terms and condition and click on Submit.</p>
-<p><img alt="" border="2" src="../img/Welcome_Lab.png" width="600px" /></p>
-<p>Then you should get a quick answer letting you know that you get an access.</p>
-<p><img alt="" border="2" src="../img/Congratulations_Lab.png" width="600px" /></p>
-<p>Click on "IBM Cloud Account", and it will open your IBM Cloud account page.</p>
-<p>You should have one cluster in the list.</p>
-<p><img alt="" src="../img/Resources_list.png" /></p>
-<p>Click on the cluster name. This screenshot is from my first access, it explains why the name is different.</p>
-<p><img alt="" src="../img/Cluster.png" /></p>
-<p>Click on "OpenShift web console" to open the web console.</p>
-<p><img alt="" src="../img/web_console.png" /></p>
-<p>You now have access to the Web Console</p>
+<p>Now you can follow the steps from <a href="https://www.ibm.com/cloud/openshift/openshift-tutorials">Red Hat OpenShift Tutorials</a>. Don't create a new account, use the one you already created here.</p>
+<p>There are some tutorials and you can also replay my demo from this environment once you are logged in the OpenShift console.</p>
+<h2 id="openshift-on-your-pc-mac-server">OpenShift on your PC / Mac / Server</h2>
+<p>The way to install OpenShift on your PC is using <a href="https://cloud.redhat.com/openshift/install/crc/installer-provisioned">CRC</a> (Code Ready Containers) and follow instructions. Be careful you need a very decent workstations with at least 4 vCPU, 10 GB or free RAM and 35 GB or storage. You also need a Red Hat account that you can create easily.</p>
 <h2 id="oc-command-line-installation">OC command line installation</h2>
 <h3 id="usage-from-ibm-cloud-shell">Usage from IBM Cloud shell</h3>
 <p>For this lab, it is easier to use the IBM Cloud Shell, where all tools are already installed.</p>
